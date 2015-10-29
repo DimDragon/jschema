@@ -19,3 +19,4 @@
 
 Please provide feedback, report bugs or make a suggestion for improvement using [GitHub Issues](https://github.com/DimDragon/jschema/issues)
 
+Website: http://jschema.com
