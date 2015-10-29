@@ -1,0 +1,165 @@
+﻿	/*.ctrl-file input{ width: auto; }
+	.ctrl-file .file-wrap
+	{
+	   overflow: hidden;
+   
+		border: 1px solid #BFBFC5;
+		border-radius: 3px;
+		padding: 5px 5px 0;
+		width: 100%;
+		-moz-box-sizing: border-box; box-sizing: border-box;
+	   }
+   
+	 .ctrl-file .file-wrap li{ padding-bottom: 5px; }
+   
+	 .ctrl-file .file-preview {
+		background-color: rgba(0, 0, 0, 0.07);
+		margin: 0 5px 5px 0;
+		padding: 5px;
+		position: relative;
+		float: left;
+	}  
+
+	.ctrl-file .file-holder {
+	    display: -moz-box; 
+        display: -webkit-box; 
+        display: -webkit-flex; 
+        display: -ms-flexbox; 
+        display: flex;
+   
+		/*-webkit-box-pack: center;
+	    -moz-box-pack: center;
+	     -ms-flex-pack: center;
+	     box-pack: center;
+ 
+	     -webkit-align-items: center;
+	     align-items: center;
+    
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+	     -webkit-box-pack: center;
+	     -webkit-justify-content: center;
+	     justify-content: center;
+
+             -moz-box-align: center; -moz-box-pack: center; 
+    -webkit-box-align: center; -webkit-box-pack: center;   
+    -webkit-align-items:center; -webkit-justify-content:center;   
+    -ms-flex-align:center; -ms-flex-pack:center;
+    align-items:center; justify-content:center; */
+ 
+	/*	max-height: 80px; min-width: 80px;
+		max-width: 80px; min-height: 80px;
+	}
+
+	.ctrl-file .file-holder img
+	{
+		-moz-box-flex: 1; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1; flex: 1; /* Fix for IE11 */
+	/*	height: auto;
+		max-height: 80px;
+		}
+    
+	 .ctrl-file .file-title {
+		width: 80px;
+		font-size: 9px;
+		overflow: hidden;
+		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}   
+
+	.ctrl-file .ctrl-img-button {
+		color: #999999;
+		font-size: 7px;
+		position: absolute; top: 2px; right: 2px;
+		cursor: pointer;
+	}
+
+	/* Ctrl FileUpload Nopreview */
+
+	.ctrl-file.no-preview .file-title {
+		text-align: left;
+		font-size: 12px;
+		line-height: 16px;
+		overflow: auto;
+		padding-right: 15px;
+		width: auto;
+	}
+
+	/* Ctrl FileUpload Single line */
+
+	.ctrl-file.singleline
+	{
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox; 
+	    display: -webkit-flex; 
+	    display: flex; 
+   
+ 
+	    -webkit-box-pack: center;
+	    -moz-box-pack: center;
+	    -ms-flex-pack: center;
+	    box-pack: center;
+ 
+	    -webkit-align-items: center;
+	    align-items: center;
+ 
+	   }
+   
+	.ctrl-file.singleline input 
+	{
+		margin-right: 10px;
+		-moz-box-flex: 0; 
+		-webkit-box-flex: 0; 
+		-webkit-flex: none; 
+		-ms-flex: none; 
+		flex: none;
+		 }  
+	.ctrl-file.singleline .file-wrap{ width: auto; margin-left:10px;}
+
+	.ctrl-file.singleline .file-preview{ margin-right: 0;}
+
+	/** Ctrl Upload SmallView **/
+
+	.ctrl-file.small-preview .file-preview
+	{
+		display: -webkit-box;
+	    display: -moz-box;
+	 display: -ms-flexbox; 
+	 display: -webkit-flex; 
+	   display: flex; 
+   
+	   padding-right: 20px;
+	   }
+   
+	.ctrl-file.small-preview .file-holder
+	{
+		max-width: 16px;
+		min-width: 16px;
+		max-height: 16px;
+		min-height: 16px;}
+
+	.ctrl-file.small-preview .file-holder img{ max-height: 16px; }
+
+	.ctrl-file.small-preview .file-title{ text-align: left; padding-left: 5px; width: auto; }
+
+	
+	
+    .progress {
+		margin: 5px 0 0;
+        background: #ccc;
+		opacity: 0;
+		-moz-transition: opacity 1s linear;
+		-o-transition: opacity 1s linear;
+		-webkit-transition: opacity 1s linear;
+	}
+  
+    .progress.loading {opacity: 1.0;}
+  
+    .progress .percent {
+		background-color: #7CBA3F;
+		height: 3px;
+        padding-left: 3px;
+		width: 0;
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }

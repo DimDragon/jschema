@@ -1,0 +1,36 @@
+﻿<template>
+	<style>
+        :host {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            -ms-background-clip: padding-box;
+            background-clip: padding-box;
+            background: #D4D4D4; /* Old browsers */
+            background: -webkit-linear-gradient(top, #F0F0F0 0%, #D4D4D4 100%);
+            background: linear-gradient(to bottom, #F0F0F0 0%, #D4D4D4 100%); /* W3C */
+            border: none;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        :host(:hover) {
+            background: #3fc2c3; /* Old browsers */
+            background: -webkit-linear-gradient(top, #F0F0F0 0%, #999999 100%); /* Chrome10+,Safari5.1+ */
+            background: linear-gradient(to bottom, #F0F0F0 0%, #999999 100%); /* W3C */
+        }
+
+		.ctrl-inner { 
+				display:block;
+				white-space: nowrap;
+				padding: 0.4em 0.5em; 
+			}
+	</style>
+
+	<span class="ctrl-inner">
+		<span class="ctrl-icon"></span>
+		<span class="ctrl-text"><content></content></span>
+	</span>
+</template>

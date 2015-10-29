@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSchema</title>
+    <link rel="stylesheet" type="text/css" href="content/css/site.css" />
+    <script src="scripts/dragon.js" data-config="libComponents: ['view', 'menu', 'menuitem', 'select', 'button', 'groupbox', 'selectbox', 'calendar', 'checkbox', 'img-button', 'file', 'form', 'toggle', 'img-select', 'set', 'slider', 'radio', 'sortlist','link']"></script>
+    <link rel="shortcut icon" href="content/img/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-wrap">
+            <div class="sponsored">
+                <span>Sponsored by</span>
+                <div class="sp-logos">
+                    <a href="http://manusplus.com" target="_blank"><img src="content/img/manus-logo.png" alt="Manus Logo" /></a>
+                </div>
+            </div>
+            <img src="content/img/site-logo.png" alt="Logo" />
+            <h1>JSON Schema Toolset</h1>
+            <a href="https://github.com/DimDragon/jschema" class="follow-btn">Follow us on</a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="nav-wrap">
+            <nav>
+                <a class="action-item selected" data-action="schema">Schema</a>
+                <a class="action-item" data-action="instance">Validate</a>
+                <a class="action-item" data-action="about">About</a>
+            </nav>
+            <section class="sch-entry">
+                <form id="procForm">
+                    <div class="hbox topbox">
+                        <div class="vbox flex-item">
+                    <div class="hbox">
+                        <a class="action-item" data-action="inputcode">by Input</a>
+                        <a class="action-item selected" data-action="inputurl">by URL</a>
+                        <input class="flex-item" autofocus type="url" placeholder="enter schema URL for visualization..." />
+                            </div>
+                            <textarea class="hidden" autofocus placeholder="enter schema code or drag schema file to visualize..." spellcheck="false"></textarea>
+                        </div>
+                        <div class="setting-btn"></div>
+                        <div class="setting-bar hidden">
+                            <h2>Errors</h2>
+                            <ul class="radio-list ">
+                                <li><ctrl-radio name="err" id="showOneError"> stop on first error </ctrl-radio></li>
+                                <li><ctrl-radio name="err" checked="true"> show all errors </ctrl-radio></li>
+                            </ul>
+                            <h2>Experimental</h2>
+                            <ul class="checkbox-list">
+                                <li><ctrl-checkbox checked> allow enumNames </ctrl-checkbox></li>
+                                <li><ctrl-checkbox disabled> allow merge sytax</ctrl-checkbox></li>
+                                <li><ctrl-checkbox disabled> allow patch sytax </ctrl-checkbox></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="wrapper hbox">
+            <div class="left-side flex-item">
+                <div class="top-wrap">
+                    <div id="errorList" class="error-wrap"></div>
+                    <div class="btn-wrap">
+                        <div class="buttons">
+                            <button type="submit" form="procForm" id="process" class="btn">Process</button>
+                        </div>
+                    </div>
+                </div>
+                <section id="content" class="sch-content">
+                    <section class="schema-content">
+                        <div class="schema-wrap">
+                            <div class="tabs hor hidden tabbar">
+                                <button class="interactive schema active" type="button" data-action="interactive" style="opacity: 1;">Interactive</button>
+                                <button class="raw schema" type="button" data-action="raw" style="opacity: 1;">Raw</button>
+                            </div>
+                            <div id="schema" class="sch-wrap hidden"></div>
+                            <div class="sch-raw hidden"></div>
+                        </div>
+
+                        <section class="form-wrap raw-instance flex-item hidden">
+                            <div class="tabs hor tabbar">
+                                <button class="interactive obj active" type="button" data-action="write" style="opacity: 1;">Write</button>
+                                <button class="raw obj " type="button" data-action="preview" style="opacity: 1;">View</button>
+                            </div>
+                            <div class="wrapper">
+                                <textarea id="instance" class="instance flex-item hidden " placeholder="enter instance for validation..." spellcheck="false"></textarea>
+                                <pre id="instanceBG"></pre>
+                            </div>
+
+                        </section>
+                    </section>
+
+                    <section class="about hidden">
+                        <div class="sch-title">
+                            <h1>JSON Schema Toolset</h1>
+                        </div>
+                        <p>Family of tools to compliment <a href="http://json-schema.org/">JSON Schema</a> specification</p>
+						<div class="highlights-wrap hbox">
+							<section class="panel-a flex-item">
+								<header>Features</header>
+								<ol>
+									<li>Schema syntax validation(v4)</li>
+									<li>Instance validation</li>
+									<li>Schema visualization</li>
+									<li>
+										Format support for:
+										<ul class="single-line no-style-list">
+											<li><em>date</em></li>
+											<li><em>time</em></li>
+											<li><em>date-time</em></li>
+											<li><em>uuid</em></li>
+											<li><em>regex</em></li>
+											<li><em>email</em></li>
+											<li><em>hostname</em></li>
+											<li><em>ipv4</em></li>
+											<li><em>ipv6</em></li>
+											<li><em>uri</em></li>
+											<li><em>json-pointer</em></li>
+										</ul>
+									</li>
+								</ol>
+							</section>
+							<section class="panel-b flex-item">
+								<header>Experimental Features</header>
+								<ol>
+									<li>enum names</li>
+									<li>merge (considered)</li>
+									<li>patch (considered)</li>
+								</ol>
+							</section>
+							<section class="panel-c flex-item">
+								<header>Contribution / Feedback</header>
+								<ol>
+									<li>Follow us on <a href="https://github.com/DimDragon/jschema">GitHub</a></li>
+									<li>Provide feedback, report bugs or make a suggestion for improvement using <a href="https://github.com/DimDragon/jschema/issues">GitHub Issues</a></li>
+									<li>JSchema project is created and maintained by <a href="mailto:draganov@consultcommerce.com">Dimitar Draganov</a></li>
+								</ol>
+							</section>
+						</div>
+</section>
+                </section>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="content">
+            <div class="footer-adopted-by">
+                Adopted by <a href="http://hropenstandards.org/" target="_blank"><img src="content/img/hr-open-logo.png" alt="HR open" /></a>
+            </div>
+            <div class="created-by"><a href="http://consultcommerce.com/" target="_blank">Created by ConsultCommerce</a></div>
+        </div>
+    </footer>
+    <script>
+        Dragon.loadScript("scripts/main.js");
+    </script>
+
+    <script>
+        function handleFileSelect(evt) {
+
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; // FileList object.
+
+
+            var reader = new FileReader();
+
+            reader.onloadend = function (evt) {
+                if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+                    dropZone.value = '';
+                    dropZone.value = evt.target.result;
+                }
+            };
+            reader.readAsText(files[0]);
+
+        }
+
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        }
+
+        // Setup the dnd listeners.
+        var dropZone = document.getElementById('instance');
+        var dropTarget = document.getElementById('instanceBG');
+
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+    </script>
+</body>
+</html>

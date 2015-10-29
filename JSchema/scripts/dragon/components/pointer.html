@@ -1,0 +1,46 @@
+﻿<template id="pointer" class="ctrl-pointer">
+    <style>
+        #capture {
+            background-color: orange;
+            height: 300px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #enterleave {
+            background-color: yellow;
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            vertical-align: center;
+            line-height: 150px;
+            left: 25%;
+            top: 25%;
+            position: relative;
+        }
+
+        #output {
+            width: 300px;
+            height: 250px;
+            overflow: scroll;
+            white-space: pre;
+        }
+
+        .text-area {
+            background-color:#FFF;
+        }
+
+        .title {
+            padding: 5px 5px;
+        }
+    </style>
+    <label class="title">ShadowDOM template</label>
+    <div class="pointer-area semi-transparent">        
+        <content select=".draw"></content>
+        <div id="capture" touch-action="none">
+            <div id="enterleave">
+            </div>
+        </div>
+    </div>
+    <div id="output" class="text-area"></div>
+</template>

@@ -1,0 +1,235 @@
+﻿<template>
+    <style>
+        :host {
+            display: block;
+        }
+
+        ol, button {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cbox {
+            -moz-box-align: center;
+            -moz-box-pack: center;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-align: center;
+            -ms-flex-pack: center;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .login {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .logo-wrap {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -moz-box-align: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -moz-box-pack: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+         ::content .form {
+            padding: 0 20px 10px;
+        }
+
+        .form {
+            padding: 0 20px 10px;
+        }
+
+            ::content .form .row {
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                -ms-flex-pack: center;
+                box-pack: center;
+                -webkit-align-items: center;
+                align-items: center;
+                margin-bottom: 1em;
+            }
+
+        .form .row {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            box-pack: center;
+            -webkit-align-items: center;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+
+        ::content  .row .ctrl-img-button {
+            margin-left: 5px;
+        }
+
+        .row .ctrl-img-button {
+            margin-left: 5px;
+        }
+
+        ::content .form .row:last-child {
+            margin-bottom: 0;
+        }
+
+        .form .row:last-child {
+            margin-bottom: 0;
+        }
+
+        ::content label {
+            margin-right: 10px;
+            max-width: 120px;
+            min-width: 120px;
+        }
+
+        label {
+            margin-right: 10px;
+            max-width: 120px;
+            min-width: 120px;
+        }
+
+        ::content input {
+            padding: 0.25em;
+        }
+
+        input {
+            padding: 0.25em;
+        }
+
+        ::content .nolabel {
+            padding-left: 130px;
+        }
+
+        .nolabel {
+            padding-left: 130px;
+        }
+
+        /*::content .ctrl-button { /* It is comment because of Chrome shadow Dom problem */
+        /*    margin-right: 10px;
+        }
+
+        .ctrl-button {
+            margin-right: 10px;
+        }*/
+
+        ::content .legend {
+            line-height: 3em;
+            text-align: center;
+        }
+
+        .legend {
+            line-height: 3em;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 480px) {
+            .login {
+                -moz-box-orient: block-axis;
+                -webkit-box-orient: block-axis;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            .form label {
+                display: none;
+            }
+
+            .form input {
+                width: 100%;
+            }
+
+
+            .form .nolabel {
+                padding-left: 0;
+            }
+        }
+    </style>
+    
+    <div class="login">
+        <div class="logo-wrap">
+            <img alt="ManusPlus" />
+        </div>
+        <content select="form"></content>
+    </div>
+</template>
+
+<template id="login">
+    <form is="ctrl-form">
+        <div class="legend">Manus<sup>+</sup> <span data-res="LOGIN"></span></div>
+            <ol>
+                <li class="row">
+                <label for="tbxNodeCode" data-res="NODE_CODE"></label>
+                    <input type="text" id="tbxNodeCode" name="nodecode" />
+                </li>
+                <li class="row">
+                <label for="tbxUsername" data-res="USER NAME">Username</label>
+                <input type="text" id="tbxUsername" name="username" data-res placeholder="username" autofocus autocomplete="off" />
+                </li>
+                <li class="row">
+                <label for="tbxPassword" data-res="PASSWORD">Password</label>
+                <input type="password" class="shorter-input" id="tbxPassword" name="password" data-res placeholder="password" />
+                <ctrl-link action="changepass" title="Forgot your password?" class="ctrl-icon icon-key"></ctrl-link>
+                </li>
+                <li class="row nolabel">
+                <div class="col">
+                    <ctrl-checkbox name="rememberme" data-res="REMEMBER_ME"></ctrl-checkbox>
+                </div>
+                <div class="col endbox">
+                    <button is="ctrl-button" type="submit" icon="icon-confirm" class="highlight" data-res>LOGIN</button>
+                </div>
+                </li>
+                <li class="row nolabel">
+                <!--<ctrl-externallogin text="Login with" url="http://localhost/DragonJS/dragon/components/redirect.html?" authority='"facebook" : "612206995456923", "windows" : "000000004C0F2BCB", "linkedin" : "sez4hoi4m9ve", "google":"1020385600508.apps.googleusercontent.com"'></ctrl-externallogin>-->
+                </li>
+				<li class="row cbox"></li>
+            </ol>
+    </form>
+</template>
+
+<template id="forgottenPassword">
+    <form is="ctrl-form" class="form-compact">
+        <div class="legend">Manus<sup>+</sup> <span data-res="FORGOTTEN_PASSWORD"></span></div>
+            <ol>
+                <li class="row">
+                <label for="tbxSSN" data-res="MAIL_SSN"></label>
+                <input type="text" class="text" id="tbxSSN" name="ssn" placeholder="ssn" required="required" data-res />
+                </li>
+                <li class="row">
+                <label for="tbxEmail" data-res="MAIL_EMAIL"></label>
+                <input type="email" class="text" id="tbxEmail" name="email" placeholder="email" required="required" data-res />
+                </li>
+                <li class="row nolabel buttons">
+                <button is="ctrl-button" type="submit" icon="icon-confirm" data-res class="highlight">REQUEST</button>
+                <ctrl-button action="cancel" icon="icon-cancel" class="secondary" data-res>CANCEL</ctrl-button>
+                </li>
+            </ol>
+    </form>
+</template>

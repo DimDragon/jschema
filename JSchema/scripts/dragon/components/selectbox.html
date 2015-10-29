@@ -1,0 +1,85 @@
+﻿<template>
+    <style>
+        :host {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        input {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0.4em 20px 0.4em 0.4em;
+            width: 100%;
+        }
+
+        ::content input {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0.4em 20px 0.4em 0.4em;
+            width: 100%;
+        }
+
+        .ctrl-btn {
+            position: relative;
+        }
+
+        .ctrl-btn .ctrl-icon {
+            margin-top: -6px;
+            position: absolute;
+            top: 50%; right: 0.5em;
+        }
+
+        .ctrl-dropdown {
+            border: 1px solid #BBBBBB;
+            padding: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .ctrl-search {
+            margin-bottom: 5px;
+        }
+
+        .ctrl-search input {
+            padding-right: 0.4em;
+        }
+
+        ::content .ctrl-dropdown {
+            border: 1px solid #BBBBBB;
+            padding: 2px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        ::content .ctrl-search {
+            margin-bottom: 5px;
+        }
+
+        ::content .ctrl-search input {
+            padding-right: 0.4em;
+        }
+    </style>
+
+    <div class="ctrl-btn">
+        <input type="text" readonly="readonly">
+        <span class="ctrl-icon icon-arrow-down"></span>
+    </div>
+    <content select=".ctrl-dropdown"></content>
+</template>
+
+<template id="filter">
+    <div class="ctrl-dropdown">
+        <div class="ctrl-search">
+            <input type="text" placeholder="Enter filter value...">
+        </div>
+        <ctrl-select>
+        </ctrl-select>
+    </div>
+</template>

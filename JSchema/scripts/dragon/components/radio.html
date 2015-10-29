@@ -1,0 +1,100 @@
+﻿<template>
+	<style>
+
+        :host {
+            position: relative;
+            display: block;
+            cursor: pointer;
+            -webkit-user-select: none; /* Chrome all / Safari all */
+            -moz-user-select: none; /* Firefox all */
+            -ms-user-select: none; /* IE 10+ */
+            /* No support for these yet, use at own risk */
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        :host(.checked:host) .ctrl-icon:after {
+            opacity: 1;
+        }
+
+        :host(.focus:host) .ctrl-text {
+            outline: 1px dotted #ccc;
+        }
+
+        input {
+            z-index: 1;
+            outline: 0;
+            opacity: 0.0001;
+            position: absolute;
+        }
+
+        input,
+        .ctrl-icon {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin: -7px 0 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .ctrl-icon{
+            border-radius: 100%;
+        }
+        
+        
+        
+        .ctrl-text {
+            display: block;
+            padding: 0 0 0 20px;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            min-width: inherit;
+            max-width: inherit;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .ctrl-icon {
+            z-index: 2;
+            border: 1px solid #333;
+        }
+
+            .ctrl-icon:after {
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #333;
+                top: 2px;
+                left: 2px;
+                border-radius: 100%;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+        :host(.disabled:host) .ctrl-icon {
+            background: #F8F8F8;
+            border-color: #DEDEDE;
+        }
+
+            :host(.disabled:host) .ctrl-icon:after {
+                border-color: #ccc;
+            }
+
+
+	</style>
+
+	<label class="ctrl-text">
+		<content></content>
+		<span class="ctrl-icon"></span>
+	</label>
+	<input type="radio" />
+</template>
+

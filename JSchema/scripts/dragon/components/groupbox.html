@@ -1,0 +1,79 @@
+﻿<template>
+    <style>
+        :host {
+            display: block;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0 5px;
+            position: absolute;
+            top: -0.75em;
+            left: 10px;
+            background: #fff;
+            font-size: inherit;
+        }
+
+        :host([type=line]:host) {
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            border-radius: 0;
+        }
+
+        :host([expandable]:host) .groupbox-header {
+            cursor: pointer;
+        }
+
+        :host([expandable]:host) .groupbox-text {
+            position: static;
+            padding: 15px;
+        }
+
+        :host([expandable]:host) .groupbox-icon {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            display: block;
+        }
+
+            :host([expandable]:host) .groupbox-icon:before {
+                content: "\e35e";
+            }
+
+        :host([expandable].toggle:host) .groupbox-icon:before {
+            content: "\e360";
+        }
+            
+            
+            :host([expandable]:host) .container {
+                display: none;
+                padding: 0 15px 15px;
+            }
+
+        :host([expandable].toggle:host) .container {
+            display: block;
+            margin-top: 10px;
+        }
+
+        /*:host([expandable].loading:host) .ctrl-icon {
+            -moz-animation: spin 1s infinite linear;
+            -webkit-animation: spin 1s infinite linear;
+            -ms-animation: spin 1s infinite linear;
+            animation: spin 1s infinite linear;
+        }*/
+    </style>
+    <header class="groupbox-header">
+        <h1 class="groupbox-text"></h1>
+        <span class="ctrl-icon groupbox-icon"></span>
+    </header>
+    <div class="container">
+        <content></content>
+    </div>
+</template>

@@ -1,0 +1,49 @@
+﻿<template>
+    <style>
+        ctrl-slider {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-pager {
+            position: absolute;
+            z-index: 2;
+            bottom: 10px;
+            list-style-type: none;
+        }
+
+        .slider-inner {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-bullet {
+            background: #797979;
+            margin: 10px 5px;
+            width: 18px;
+            height: 18px;
+            -webkit-border-radius: 18px;
+            -moz-border-radius: 18px;
+            border-radius: 18px;
+        }
+
+
+            .slider-bullet:hover; {
+                background: rgba(255,255,255,0.5);
+            }
+
+            .slider-bullet.selected {
+                background: #fff;
+            }
+
+        .slider-item {
+            position: relative;
+        }
+    </style>
+
+    <div class="slider-inner">
+        <div class="slider-pages hbox"></div>
+    </div>
+    <ol class="slider-pager cbox"></ol>
+</template>

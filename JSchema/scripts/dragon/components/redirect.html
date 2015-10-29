@@ -1,0 +1,12 @@
+﻿<script type="text/javascript">
+    var SOURCES = {
+        FB: '//connect.facebook.net/en_US/all.js',
+        WL: '//js.live.net/v5.0/wl.js'
+    },
+        path = SOURCES[location.search.substring(1)],
+        scrpt = document.createElement("script");
+
+    scrpt.setAttribute('type', "text/javascript");
+    scrpt.setAttribute('src', path);
+    document.documentElement.appendChild(scrpt);
+</script>

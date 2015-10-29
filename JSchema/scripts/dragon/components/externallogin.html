@@ -1,0 +1,53 @@
+﻿<template>
+    <style>
+
+        :host {
+            background: #D4D4D4; /* Old browsers */
+            background: -webkit-linear-gradient(top, #F0F0F0 0%, #D4D4D4 100%);
+            background: linear-gradient(to bottom, #F0F0F0 0%, #D4D4D4 100%); /* W3C */
+            border-radius: 4px;
+            display: inline-block;
+            cursor: default;
+        }
+
+        .ctrl-inner {
+            display: block;
+            padding: 0.4em 0.5em;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .ctrl-dropmenu {
+            display: none;
+            background-color: #999;
+            border-radius: 0 0 4px 4px;
+            box-sizing: border-box;
+            padding: 10px 0 0 10px;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            white-space: normal;
+            margin: 0;
+        }
+
+            .ctrl-dropmenu li {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            
+            
+          .ctrl-dropmenu.toggle {
+                display: block;
+            }
+
+    </style>
+    <div class="ctrl-inner">
+        <span class="ctrl-holder">
+            <span class="ctrl-text"></span>
+            <span class="ctrl-icon icon-facebook"></span>
+        </span>
+        <content select=".icon-arrow-down"></content>
+        <ul class="ctrl-dropmenu"></ul>
+    </div>
+</template>

@@ -1,0 +1,467 @@
+﻿<template name="style">
+    <style>
+        :host {
+            display: -moz-box; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+            width: 100%;
+            background: #F0F0F0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-item, menu-item {
+            display: block;
+            padding: 5px 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .ctrl-link{
+            cursor: pointer;
+        }
+
+        sub-menu {
+            position: absolute;
+            left: 0;
+            top: 30px;
+            background: #e0e0e0;
+            display: none;
+        }
+
+        .menu-item.hover > sub-menu,
+        menu-item.hover > sub-menu {
+            display: block;
+        }
+
+        .level-2 {
+            background: #D6D6D6;
+        }
+
+        .menu-item.hover, menu-item.hover,
+        .menu-item:hover, menu-item:hover {
+            background: rgba(170, 170, 170,0.8);
+        }
+
+        .menu-item.current-parent, menu-item.current-parent,
+        .menu-item.current, menu-item.current {
+            background: rgb(170, 170, 170);
+        }
+
+        .ctrl-icon, ctrl-icon {
+            /*display: block;*/
+        }
+
+
+        /* Dropline menu */
+
+
+        :host(.dropline:host) menu-item.hover > sub-menu,
+        :host(.dropline:host) .menu-item.hover > sub-menu,
+        :host(.dropline:host) .current-parent > sub-menu,
+        :host(.dropline:host) .current sub-menu,
+        :host(.hover.dropline:host) .current-parent.hover sub-menu,
+        :host(.hover.dropline:host) .current.hover sub-menu{
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        :host(.hover.dropline:host) .current-parent sub-menu,
+        :host(.hover.dropline:host) .current sub-menu {
+            display: none;
+        }
+
+        :host(.dropline:host) .ctrl-icon {
+            display: none;
+        }
+
+
+        /* Droplist menu */
+
+
+        :host(.droplist:host) .group-menu {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+        }
+
+        /*:host(.droplist:host) .group-menu .ctrl-icon {
+            display: none;
+        }*/
+
+        :host(.droplist:host) .ctrl-menuheader {
+            display: none;
+        }
+
+        :host(.droplist:host) .ctrl-menuheader .ctrl-icon {
+            font-size: 18px;
+        }
+
+        :host(.droplist:host) .ctrl-menuheader .icon-arrow-left {
+            cursor: pointer;
+        }
+
+        :host(.droplist:host) .ctrl-menuheader .breadcrumbs {
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding-left: 10px;
+        }
+
+        .breadcrumbs ol {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        :host(.droplist:host) sub-menu .menu-item,
+        :host(.droplist:host) sub-menu menu-item {
+            padding-right: 20px;
+            white-space: nowrap;
+        }
+        
+        :host(.droplist:host) sub-menu .ctrl-icon{
+            display: block;
+            position: absolute; top: 50%; right: 0;
+            margin-top: -8px;
+        }
+
+
+
+        :host(.droplist:host) .menu-item sub-menu sub-menu,
+        :host(.droplist:host) menu-item sub-menu sub-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        /* Dropslide menu */
+
+        :host(.dropslide:host) {
+            -moz-box-orient: block-axis;
+            -webkit-box-orient: block-axis;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+
+            transition: transform 0.25s ease-in-out 0s;
+            -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+            -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+            transform: translate(-100%, 0px);
+            -webkit-transform: translate(-100%, 0px);
+            -ms-transform: translate(-100%, 0px);
+        }
+
+
+            :host(.dropslide:host) .group-menu {
+                display: block;
+                height: 100%;
+                position: relative;
+            }
+
+            :host(.dropslide:host) .ctrl-menuheader {
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -moz-box-align: center;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                min-height: 50px;
+            }
+
+                :host(.dropslide:host) .ctrl-menuheader .ctrl-icon {
+                    font-size: 18px;
+                }
+
+                :host(.dropslide:host) .ctrl-menuheader .icon-arrow-left {
+                    cursor: pointer;
+                }
+
+                :host(.dropslide:host) .ctrl-menuheader .breadcrumbs {
+                    -moz-box-flex: 1;
+                    -webkit-box-flex: 1;
+                    -webkit-flex: 1 1 auto;
+                    -ms-flex: 1 1 auto;
+                    flex: 1 1 auto;
+                    padding-left: 10px;
+                }
+
+                :host(.dropslide:host) .ctrl-menuheader .icon-menu {
+                    cursor: pointer;
+                    padding-left: 3px;
+                    display: block;
+                    transform: translate(100%,0);
+                    -webkit-transform: translate(100%,0);
+                    -ms-transform: translate(100%,0);
+                    transition: transform 0.25s ease-in-out 0s;
+                    -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+                    -ms-transition: -ms-transform 0.6s ease-in-out 0s;
+                }
+
+            :host(.dropslide:host) menu-item,
+            :host(.dropslide:host) .menu-item {
+                position: static;
+            }
+
+                :host(.dropslide:host) .menu-item sub-menu,
+                :host(.dropslide:host) menu-item sub-menu {
+                    transform: translate(-100%,0);
+                    -webkit-transform: translate(-100%,0);
+                    -ms-transform: translate(-100%,0);
+                    transition: transform 0.25s ease-in-out 0s;
+                    -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+                    -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+        :host(.dropslide.toggle:host) {
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+            -ms-transform: translate(0,0);
+            transition: transform 0.25s ease-in-out 0s;
+            -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+            -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+        }
+
+            :host(.dropslide.toggle:host) .ctrl-menuheader .icon-menu {
+                transform: translate(0,0);
+                -webkit-transform: translate(0,0);
+                -ms-transform: translate(0,0);
+            }
+
+        :host(.dropslide:host) .menu-item.toggle > sub-menu,
+        :host(.dropslide:host) menu-item.toggle > sub-menu {
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+            -ms-transform: translate(0,0);
+        }
+
+        /*:host(.droplist:host) .group-menu .ctrl-icon,
+        :host(.droplist:host) .group-menu .ctrl-icon {
+            display: block;
+        }*/
+
+        :host(.dropslide:host) .menu-item .icon-arrow-right,
+        :host(.droplist:host) menu-item .icon-arrow-right {
+            cursor: pointer;
+            margin-top: -5px;
+            position: absolute;
+            top: auto;
+            right: 0;
+            width: 20px;
+            transform: translate(0px, 50%);
+            -webkit-transform: translate(0px, 50%);
+            -ms-transform: translate(0px, 50%);
+        }
+
+        :host(.dropslide:host) .group-menu .icon-arrow-right,
+        :host(.dropslide:host) .group-menu .icon-arrow-right {
+            display: inline;
+        }
+
+        @media screen and (max-width: 768px) {
+
+        /* Dropline menu */
+
+            :host(.dropline:host),
+            :host(.dropline:host) sub-menu {
+                -moz-box-orient: block-axis;
+                -webkit-box-orient: block-axis;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            :host(.dropline:host) sub-menu {
+                position: static;
+                display: none;
+            }
+
+
+            :host(.dropline:host) .menu-item.toggle sub-menu,
+            :host(.dropline:host) menu-item.toggle sub-menu {
+                display: block;
+            }
+
+            :host(.dropline:host) .ctrl-icon {
+                display: block;
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                cursor: pointer;
+            }
+
+            :host(.dropline.hover:host) .current-parent sub-menu {
+                display: block;
+            }
+
+            :host(.dropline:host) .menu-item.hover,
+            :host(.dropline:host) menu-item.hover {
+                background: transparent;
+            }
+
+            :host(.dropline:host) .menu-item.current-parent.hover,
+            :host(.dropline:host) menu-item.current-parent.hover,
+            :host(.dropline:host) .menu-item.current-parent,
+            :host(.dropline:host) menu-item.current-parent {
+                background: #F0F0F0;
+            }
+
+
+            :host(.dropline:host) .menu-item.current.hover,
+            :host(.dropline:host) menu-item.current.hover {
+                background: rgb(170, 170, 170);
+            }
+
+        /* Droplist menu */
+
+        :host(.droplist:host) {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+
+            transition: transform 0.25s ease-in-out 0s;
+            -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+            -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+
+            transform: translate(-100%, 0px);
+            -webkit-transform: translate(-100%, 0px);
+            -ms-transform: translate(-100%, 0px);
+        }
+
+            :host(.droplist:host) .group-menu {
+                display: block;
+                height: 100%;
+                position: relative;
+            }
+
+            :host(.droplist:host) .ctrl-menuheader {
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+
+                -moz-box-align: center;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+
+                min-height: 50px;
+            }
+
+                :host(.droplist:host) .ctrl-menuheader .icon-menu {
+                    cursor: pointer;
+                    padding-left: 3px;
+                    display: block;
+
+                    transform: translate(100%,0);
+                    -webkit-transform: translate(100%,0);
+                    -ms-transform: translate(100%,0);
+
+                    transition: transform 0.25s ease-in-out 0s;
+                    -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+                    -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+                }
+
+        :host(.droplist:host) menu-item,
+        :host(.droplist:host) .menu-item {
+            position: static;
+        }
+
+            :host(.droplist:host) .menu-item sub-menu,
+            :host(.droplist:host) menu-item sub-menu {
+                transform: translate(-100%,0);
+                -webkit-transform: translate(-100%,0);
+                -ms-transform: translate(-100%,0);
+                transition: transform 0.25s ease-in-out 0s;
+                -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+                -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+                   
+                top: 0;
+                left: 0;
+
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+        :host(.droplist.toggle:host) {
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+            -ms-transform: translate(0,0);
+
+            transition: transform 0.25s ease-in-out 0s;
+            -webkit-transition: -webkit-transform 0.25s ease-in-out 0s;
+            -ms-transition: -ms-transform 0.25s ease-in-out 0s;
+        }
+
+            :host(.droplist.toggle:host) .ctrl-menuheader .icon-menu {
+                transform: translate(0,0);
+                -webkit-transform: translate(0,0);
+                -ms-transform: translate(0,0);
+            }
+
+        :host(.droplist:host) .menu-item.toggle > sub-menu,
+        :host(.droplist:host) menu-item.toggle > sub-menu {
+            transform: translate(0,0);
+            -webkit-transform: translate(0,0);
+            -ms-transform: translate(0,0);
+        }
+
+        /*:host(.droplist:host) .group-menu .ctrl-icon,
+        :host(.droplist:host) .group-menu .ctrl-icon {
+            display: block;
+        }*/
+            
+        :host(.droplist:host) .menu-item .icon-arrow-right,
+        :host(.droplist:host) menu-item .icon-arrow-right {
+            cursor: pointer;
+            margin-top: -5px;
+            position: absolute;
+            top: auto;
+            right: 0;
+            width: 20px;
+            transform: translate(0px, 50%);
+            -webkit-transform: translate(0px, 50%);
+            -ms-transform: translate(0px, 50%);
+        }
+
+        :host(.droplist:host) .group-menu .icon-arrow-right,
+        :host(.droplist:host) .group-menu .icon-arrow-right {
+            display: inline;
+        }
+    }
+    </style>
+</template>
+<template name="menuheader">
+    <div class="ctrl-menuheader">
+		<span class="ctrl-icon icon-arrow-left hidden"></span>
+        <div class="breadcrumbs"></div>
+        <span class="ctrl-icon icon-menu"></span>
+    </div>
+</template>

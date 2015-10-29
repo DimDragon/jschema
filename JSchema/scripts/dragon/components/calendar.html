@@ -1,0 +1,333 @@
+﻿<template>
+	<style>
+		ctrl-calendar {
+			border: 1px solid #bbb;
+			padding: 0.45em;
+			font-size: 12px;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			user-select: none;
+			position: relative;
+			display: block;
+		}
+
+
+		/* Ctrl Calendar */
+
+
+        .ctrl-calendar-window a, .ctrl-calendar-window a:hover {
+            text-decoration: none;
+        }
+
+        ctrl-calendar input {
+            border: none;
+        }
+
+        .ctrl-calendar-window {
+            background: #fff;
+            width: 296px;
+            overflow: hidden;
+        }
+
+        .ctrl-calendar-window header {
+            position: relative;
+            line-height: 2em;
+            text-align: center;
+            background: #ccc;
+        }
+
+        .ctrl-calendar-window .title {
+            padding: 0 0.833em;
+            outline: 0;
+        }
+
+        ctrl-calendar .ctrl-icon,
+        .ctrl-calendar-window .ctrl-icon {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 0.5em;
+        }
+
+		/* Flat Calendar */
+
+        .ctrl-calendar-window .ctrl-icon {
+            right: inherit;
+        }
+
+        .ctrl-calendar-window .icon-arrow-left {
+            left: 0.5em;
+        }
+
+
+        .ctrl-calendar-window .icon-arrow-right {
+            right: 0.5em;
+        }
+
+
+        .ctrl-calendar-window.flat .row {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -moz-box-orient: horizontal;
+            -webkit-box-orient: inline-axis;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            margin-bottom: 0;
+        }
+
+        .ctrl-calendar-window .small {
+            width: 12.5%;
+            padding: 0.167em 0;
+        }
+
+        .ctrl-calendar-window .middle {
+            width: 25%;
+            padding: 1.167em 0;
+        }
+
+        .ctrl-calendar-window .cell {
+            text-align: center;
+            cursor: pointer;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+            .ctrl-calendar-window .week a {
+                color: #000;
+            }
+
+            .ctrl-calendar-window .week.cell {
+                background-color: #E9E9E9;
+            }
+
+            .ctrl-calendar-window .week .cell {
+                cursor: default;
+            }
+
+            .ctrl-calendar-window .inactive a {
+                color: #ccc;
+            }
+
+            .ctrl-calendar-window .small:hover,
+            .ctrl-calendar-window .selected.small,
+            .ctrl-calendar-window .selected .small {
+                padding: 0.167em 0;
+            }
+
+            .ctrl-calendar-window .cell:hover {
+                background: rgba(204, 204, 204, 0.3);
+            }
+
+            .ctrl-calendar-window .selected.cell,
+            .ctrl-calendar-window .selected .cell {
+                background: #ccc;
+            }
+
+        .ctrl-calendar-window .inner {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .ctrl-calendar-window.flat footer {
+            padding: 0.417em 0;
+            text-align: center;
+            background: #ccc;
+        }
+
+        .ctrl-calendar-window.touch footer {
+            padding: 0.417em;
+        }
+
+
+		/* ctrl-calendar animations */
+		/*Css secltors for .flat, .touch, .slot will not work!!!!*/
+        .ctrl-calendar-window.flat ul {
+            -moz-transition: all 0.2s ease-out;
+            -webkit-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+            width: 100%;
+        }
+
+
+        .ctrl-calendar-window .inner.zoom ul {
+            -moz-transform: sctrl-cale(0.4);
+            -webkit-transform: sctrl-cale(0.4);
+            -o-transform: sctrl-cale(0.4);
+            -ms-transform: sctrl-cale(0.4);
+            transform: sctrl-cale(0.4);
+        }
+
+
+		/* touch ctrl-calendar overrides */
+        .ctrl-calendar-window.touch .ctrl-cal-inner {
+            margin: 6px 13px;
+            overflow: hidden;
+        }
+
+        .ctrl-calendar-window.touch .btn-sec .ctrl-inner {
+            padding: 0.4em 0.5em;
+        }
+
+        .ctrl-calendar-window.touch footer {
+            padding: 0.5em;
+            border-top: 1px solid #B2C3DE;
+            font-size: 1em;
+        }
+
+
+        .ctrl-calendar-window .slot {
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            width: 100px;
+            position: relative;
+        }
+
+
+        .ctrl-calendar-window .slot-title {
+            text-align: center;
+            font-size: 1em;
+        }
+
+
+        .ctrl-calendar-window .slot-wrap {
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            padding: 0 6px;
+            border: 1px solid #68686e;
+        }
+
+
+        .ctrl-calendar-window .slot-spin {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+            top: 0;
+            padding: 0 6px 0 0;
+            margin: 0;
+            cursor: pointer;
+            -moz-transition: top 0.2s ease-out;
+            -webkit-transition: top 0.5s ease-out;
+            -o-transition: top 0.5s ease-out;
+            transition: top 0.5s ease-out;
+        }
+
+            .ctrl-calendar-window .slot-spin.stop-anim {
+                -moz-transition: none;
+                -webkit-transition: none;
+                -o-transition: none;
+                transition: none;
+            }
+
+
+        .ctrl-calendar-window .slot-focus {
+            position: absolute;
+            bottom: 60px;
+            /*z-index: 10;*/
+            width: 100%;
+            height: 30px;
+            background: #ccc;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+
+        .ctrl-calendar-window .slot-spin li {
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: right;
+            display: block;
+            padding: 0 5px;
+        }
+
+        .ctrl-calendar-window .slot-spin .slot-invalid {
+            visibility: hidden;
+        }
+
+
+        .ctrl-calendar-window.flat[type="week"] .row:hover .small {
+            background: #F0F0F0;
+        }
+
+        .ctrl-calendar-window.flat[type="week"] .row.week:hover .small {
+            background: none;
+        }
+	</style>
+</template>
+
+<template control>
+	<input type="text" />
+	<span class="ctrl-icon icon-arrow-down"></span>
+</template>
+
+<template id="flat">
+	<section class="flat">
+		<header>
+			<span class="ctrl-icon icon-arrow-left"></span>
+			<a class="title" href="#"></a>
+			<span class="ctrl-icon icon-arrow-right"></span>
+		</header>
+		<div class="inner">
+			<ul>
+				<template repeat>
+					<li class="row week{{if(selected) ' selected'}}" ?="{{week}}">
+						<template repeat="items">
+							<span class="cell {{class}}{{if(week) ' week '}}{{if(inactive) ' inactive '}}{{if(selected) ' selected'}}">{{text}}</span>
+						</template>
+					</li>
+					<li class="row{{if(selected) ' selected'}}" ?="{{!week}}">
+						<template repeat="items">
+							<span class="cell {{class}}{{if(week) ' week '}}{{if(inactive) ' inactive '}}{{if(selected) ' selected'}}">
+								<a href="#">{{text}}</a>
+							</span>
+						</template>
+					</li>
+				</template>
+			</ul>
+		</div>
+		<footer>
+			<a href="#"></a>
+		</footer>
+	</section>
+</template>
+
+<template id ="touch">
+	<section class="touch">
+		<header>
+			<span class="title"></span>
+		</header>
+		<div class="inner">
+		</div>
+		<footer class="group-btn">
+			<ctrl-button data-res="SELECT" icon="icon-confirm" class="highlight"></ctrl-button>
+			<ctrl-button data-res="CANCEL" icon="icon-cancel"></ctrl-button>
+		</footer>
+	</section>
+</template>
+
+<template id="slot">
+	<div class="slot">
+		<div class="slot-title"></div>
+		<div class="slot-wrap">
+			<ul class="slot-spin"></ul>
+			<div class="slot-fade"></div>
+		</div>
+		<div class="slot-focus"></div>
+	</div>
+</template>

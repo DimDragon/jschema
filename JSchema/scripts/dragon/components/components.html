@@ -1,0 +1,422 @@
+﻿<template>
+    <style>
+        /* --- Browser reset --- */
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, html, pre, form, fieldset, button, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        fieldset, img {
+            border: 0;
+        }
+
+        address, caption, cite, code, dfn, em, th, var {
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        caption, th {
+            text-align: left;
+        }
+
+        article, aside, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        @font-face {
+            font-family: 'icofont';
+            src: url('../Scripts/dragon/fonts/icofont.eot?-56j77f');
+            src: url('../Scripts/dragon/fonts/icofont.eot?#iefix-56j77f') format('embedded-opentype'), url('../Scripts/dragon/fonts/icofont.woff?-56j77f') format('woff'), url('../Scripts/dragon/fonts/icofont.ttf?-56j77f') format('truetype'), url('../Scripts/dragon/fonts/icofont.svg?-56j77f#icofont') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .ctrl-icon {
+            font-family: 'icofont';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-plus-circle:before {
+            content: "\e35e";
+        }
+
+        .icon-close:before {
+            content: "\e36b";
+        }
+
+        .icon-clock:before {
+            content: "\e600";
+        }
+
+        .icon-enter:before {
+            content: "\e601";
+        }
+
+        .icon-exit:before {
+            content: "\e602";
+        }
+
+        .icon-checkmark:before {
+            content: "\e604";
+        }
+
+        .icon-embed:before {
+            content: "\e609";
+        }
+
+        .icon-history:before {
+            content: "\e60a";
+        }
+
+        .icon-keyboard:before {
+            content: "\e60b";
+        }
+
+        .icon-expand:before {
+            content: "\e60c";
+        }
+
+        .icon-blocked:before {
+            content: "\e60d";
+        }
+
+        .icon-remove:before {
+            content: "\e60e";
+        }
+
+        .icon-arrow-up:before {
+            content: "\e61d";
+        }
+
+        .icon-arrow-right2:before {
+            content: "\e61e";
+        }
+
+        .icon-arrow-down-right:before {
+            content: "\e625";
+        }
+
+        .icon-arrow-down2:before {
+            content: "\e61f";
+        }
+
+        .icon-arrow-left2:before {
+            content: "\e620";
+        }
+
+        .icon-maximize:before {
+            content: "\e623";
+        }
+
+        .icon-wrench:before {
+            content: "\e626";
+        }
+
+        .icon-settings:before {
+            content: "\e627";
+        }
+
+        .icon-cogs:before {
+            content: "\e628";
+        }
+
+        .icon-list:before {
+            content: "\e629";
+        }
+
+        .icon-menu:before {
+            content: "\e62a";
+        }
+
+        .icon-attachment:before {
+            content: "\e62b";
+        }
+
+        .icon-in:before {
+            content: "\e62c";
+        }
+
+        .icon-thumbs-up:before {
+            content: "\e62d";
+        }
+
+        .icon-thumbs-up2:before {
+            content: "\e62e";
+        }
+
+        .icon-arrow-down2:before {
+            content: "\e603";
+        }
+
+        .icon-cross:before {
+            content: "\e605";
+        }
+
+        .icon-erase:before {
+            content: "\e606";
+        }
+
+        .icon-arrow-down3:before {
+            content: "\e607";
+        }
+
+        .icon-menu2:before {
+            content: "\e608";
+        }
+
+        .icon-trash:before {
+            content: "\e60f";
+        }
+
+        .icon-arrow-left3:before {
+            content: "\e610";
+        }
+
+        .icon-arrow-down32:before {
+            content: "\e611";
+        }
+
+        .icon-arrow-up3:before {
+            content: "\e612";
+        }
+
+        .icon-arrow-right3:before {
+            content: "\e613";
+        }
+
+        .icon-arrow-left:before {
+            content: "\e614";
+        }
+
+        .icon-arrow-down:before {
+            content: "\e615";
+        }
+
+        .icon-arrow-up2:before {
+            content: "\e616";
+        }
+
+        .icon-arrow-right:before {
+            content: "\e617";
+        }
+
+        .icon-arrow-left4:before {
+            content: "\e618";
+        }
+
+        .icon-arrow-down4:before {
+            content: "\e619";
+        }
+
+        .icon-arrow-up4:before {
+            content: "\e61a";
+        }
+
+        .icon-arrow-right4:before {
+            content: "\e61b";
+        }
+
+        .icon-cw:before {
+            content: "\e61c";
+        }
+
+        .icon-shuffle:before {
+            content: "\e621";
+        }
+
+        .icon-arrow:before {
+            content: "\e62f";
+        }
+
+        .icon-retweet:before {
+            content: "\e622";
+        }
+
+        .icon-comment:before {
+            content: "\e630";
+        }
+
+        .icon-chat:before {
+            content: "\e631";
+        }
+
+        .icon-user:before {
+            content: "\e632";
+        }
+
+        .icon-users:before {
+            content: "\e633";
+        }
+
+        .icon-user-add:before {
+            content: "\e634";
+        }
+
+        .icon-paperclip:before {
+            content: "\e635";
+        }
+
+        .icon-cross2:before {
+            content: "\e636";
+        }
+
+        .icon-checkmark2:before {
+            content: "\e637";
+        }
+
+        .icon-lock-open:before {
+            content: "\e638";
+        }
+
+        .icon-lock:before {
+            content: "\e639";
+        }
+
+        .icon-trash2:before {
+            content: "\e624";
+        }
+
+        .icon-disk:before {
+            content: "\e63a";
+        }
+
+        .icon-download:before {
+            content: "\e63b";
+        }
+
+        .icon-upload:before {
+            content: "\e63c";
+        }
+
+        .icon-list2:before {
+            content: "\e63d";
+        }
+
+        .icon-database:before {
+            content: "\e63e";
+        }
+
+        .icon-facebook:before {
+            content: "\e63f";
+        }
+
+        .icon-googleplus:before {
+            content: "\e640";
+        }
+
+        .icon-tumblr:before {
+            content: "\e641";
+        }
+
+        .icon-linkedin:before {
+            content: "\e642";
+        }
+
+        .icon-pictures:before {
+            content: "\e643";
+        }
+
+        .icon-text:before {
+            content: "\e644";
+        }
+
+        .icon-link:before {
+            content: "\e645";
+        }
+
+        .icon-statistics:before {
+            content: "\e646";
+        }
+
+        .icon-video:before {
+            content: "\e647";
+        }
+
+        .icon-resize-shrink:before {
+            content: "\e648";
+        }
+
+        .icon-resize-enlarge:before {
+            content: "\e649";
+        }
+
+
+
+
+
+        .display-none {
+            display: none;
+        }
+
+
+        /** Flexbox **/
+
+        .vbox, .hbox, .cbox, .endbox {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            /*-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;*/
+        }
+
+        .hbox {
+            -moz-box-orient: horizontal;
+            -webkit-box-orient: inline-axis;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .vbox {
+            -moz-box-orient: block-axis;
+            -webkit-box-orient: block-axis;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .cbox {
+            -moz-box-align: center;
+            -moz-box-pack: center;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-align: center;
+            -ms-flex-pack: center;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .endbox {
+            -moz-box-pack: end;
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            width: 100%;
+        }
+    </style>
+</template>

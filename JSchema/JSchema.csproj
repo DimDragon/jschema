@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02F823AF-66A6-4F94-B835-11D46C35004C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSchema</RootNamespace>
+    <AssemblyName>JSchema</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\css\site.css" />
+    <Content Include="content\img\favicon.ico" />
+    <Content Include="content\img\git-hub-logo-sprite.png" />
+    <Content Include="content\img\header.png" />
+    <Content Include="content\img\highlights-icons-wrap.png" />
+    <Content Include="content\img\hr-open-logo.png" />
+    <Content Include="content\img\hr-open.png" />
+    <Content Include="content\img\icon-meta.png" />
+    <Content Include="content\img\manus-logo.png" />
+    <Content Include="content\img\ring.png" />
+    <Content Include="content\img\sch-valid.png" />
+    <Content Include="content\img\site-logo.png" />
+    <Content Include="index.htm" />
+    <Content Include="scripts\dragon.js" />
+    <Content Include="scripts\dragon\anim.js" />
+    <Content Include="scripts\dragon\animiterationeasings.js" />
+    <Content Include="scripts\dragon\animtimedeasings.js" />
+    <Content Include="scripts\dragon\binding.js" />
+    <Content Include="scripts\dragon\classlist.js" />
+    <Content Include="scripts\dragon\components.html" />
+    <Content Include="scripts\dragon\components.js" />
+    <Content Include="scripts\dragon\components\button.html" />
+    <Content Include="scripts\dragon\components\button.js" />
+    <Content Include="scripts\dragon\components\calendar.html" />
+    <Content Include="scripts\dragon\components\calendar.js" />
+    <Content Include="scripts\dragon\components\checkbox.html" />
+    <Content Include="scripts\dragon\components\checkbox.js" />
+    <Content Include="scripts\dragon\components\components.css" />
+    <Content Include="scripts\dragon\components\components.html" />
+    <Content Include="scripts\dragon\components\content.js" />
+    <Content Include="scripts\dragon\components\daterange.html" />
+    <Content Include="scripts\dragon\components\daterange.js" />
+    <Content Include="scripts\dragon\components\dropmenu.html" />
+    <Content Include="scripts\dragon\components\externallogin.html" />
+    <Content Include="scripts\dragon\components\externallogin.js" />
+    <Content Include="scripts\dragon\components\file.css" />
+    <Content Include="scripts\dragon\components\file.html" />
+    <Content Include="scripts\dragon\components\file.js" />
+    <Content Include="scripts\dragon\components\filter.html" />
+    <Content Include="scripts\dragon\components\filter.js" />
+    <Content Include="scripts\dragon\components\form.js" />
+    <Content Include="scripts\dragon\components\groupbox.html" />
+    <Content Include="scripts\dragon\components\groupbox.js" />
+    <Content Include="scripts\dragon\components\html.js" />
+    <Content Include="scripts\dragon\components\img-button.html" />
+    <Content Include="scripts\dragon\components\img-button.js" />
+    <Content Include="scripts\dragon\components\img-select.html" />
+    <Content Include="scripts\dragon\components\img-select.js" />
+    <Content Include="scripts\dragon\components\link.html" />
+    <Content Include="scripts\dragon\components\link.js" />
+    <Content Include="scripts\dragon\components\login.html" />
+    <Content Include="scripts\dragon\components\login.js" />
+    <Content Include="scripts\dragon\components\menu.html" />
+    <Content Include="scripts\dragon\components\menu.js" />
+    <Content Include="scripts\dragon\components\menuitem.js" />
+    <Content Include="scripts\dragon\components\number.html" />
+    <Content Include="scripts\dragon\components\number.js" />
+    <Content Include="scripts\dragon\components\pointer.html" />
+    <Content Include="scripts\dragon\components\pointer.js" />
+    <Content Include="scripts\dragon\components\radio.html" />
+    <Content Include="scripts\dragon\components\radio.js" />
+    <Content Include="scripts\dragon\components\redirect.html" />
+    <Content Include="scripts\dragon\components\schedule.js" />
+    <Content Include="scripts\dragon\components\select.html" />
+    <Content Include="scripts\dragon\components\select.js" />
+    <Content Include="scripts\dragon\components\selectbox.html" />
+    <Content Include="scripts\dragon\components\selectbox.js" />
+    <Content Include="scripts\dragon\components\set.js" />
+    <Content Include="scripts\dragon\components\slider.html" />
+    <Content Include="scripts\dragon\components\slider.js" />
+    <Content Include="scripts\dragon\components\sortlist.js" />
+    <Content Include="scripts\dragon\components\toggle.html" />
+    <Content Include="scripts\dragon\components\toggle.js" />
+    <Content Include="scripts\dragon\components\view.js" />
+    <Content Include="scripts\dragon\database.js" />
+    <Content Include="scripts\dragon\datetime.js" />
+    <Content Include="scripts\dragon\dialog.html" />
+    <Content Include="scripts\dragon\dialog.js" />
+    <Content Include="scripts\dragon\dnd.js" />
+    <Content Include="scripts\dragon\dom.js" />
+    <Content Include="scripts\dragon\domobserver.js" />
+    <Content Include="scripts\dragon\enum.js" />
+    <Content Include="scripts\dragon\event.js" />
+    <Content Include="scripts\dragon\fonts\icofont.svg" />
+    <Content Include="scripts\dragon\gesture.js" />
+    <Content Include="scripts\dragon\images\icons-sprite.png" />
+    <Content Include="scripts\dragon\jpointer.js" />
+    <Content Include="scripts\dragon\lang.js" />
+    <Content Include="scripts\dragon\model.js" />
+    <Content Include="scripts\dragon\notification.js" />
+    <Content Include="scripts\dragon\observer.js" />
+    <Content Include="scripts\dragon\pointerevents.js" />
+    <Content Include="scripts\dragon\pointerevents_new.js" />
+    <Content Include="scripts\dragon\position.js" />
+    <Content Include="scripts\dragon\qa.js" />
+    <Content Include="scripts\dragon\router.js" />
+    <Content Include="scripts\dragon\security.js" />
+    <Content Include="scripts\dragon\shadowcss.js" />
+    <Content Include="scripts\dragon\shadowdom.js" />
+    <Content Include="scripts\dragon\sort.js" />
+    <Content Include="scripts\dragon\template.js" />
+    <Content Include="scripts\dragon\uitools.html" />
+    <Content Include="scripts\dragon\uitools.js" />
+    <Content Include="scripts\dragon\validation.js" />
+    <Content Include="scripts\dragon\validation_old.js" />
+    <Content Include="scripts\dragon\viewmodel.js" />
+    <Content Include="scripts\dragon\weakmap.js" />
+    <Content Include="scripts\dragon\window.js" />
+    <Content Include="scripts\dragon\xhr.js" />
+    <Content Include="scripts\jschema\images\favicon.ico" />
+    <Content Include="scripts\jschema\images\icon-meta.png" />
+    <Content Include="scripts\jschema\images\progress-logo.png" />
+    <Content Include="scripts\jschema\images\progress-ring.png" />
+    <Content Include="scripts\jschema\images\sch-valid.png" />
+    <Content Include="scripts\jschema\jpointer.js" />
+    <Content Include="scripts\jschema\jschema.css" />
+    <Content Include="scripts\jschema\jschema.html" />
+    <Content Include="scripts\jschema\jschema.js" />
+    <Content Include="scripts\jschema\renderer.js" />
+    <Content Include="scripts\jschema\resolver.js" />
+    <Content Include="scripts\jschema\validator.js" />
+    <Content Include="scripts\main.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\font\OpenSans-Bold.woff" />
+    <Content Include="content\font\OpenSans-Light.woff" />
+    <Content Include="content\font\OpenSans-Regular.woff" />
+    <Content Include="content\font\Roboto-Regular.woff" />
+    <Content Include="schema\hyper4.json" />
+    <Content Include="schema\v4.json" />
+    <Content Include="scripts\dragon\fonts\icofont.eot" />
+    <Content Include="scripts\dragon\fonts\icofont.ttf" />
+    <Content Include="scripts\dragon\fonts\icofont.woff" />
+    <Content Include="scripts\jschema\font\Roboto-Regular.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60853</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/JSch</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

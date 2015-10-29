@@ -1,0 +1,59 @@
+﻿<template>
+    <style>
+        :host {
+            border: 1px solid #bbb;
+            border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+            padding: 0.45rem;
+            position: relative;
+            display: block;
+        }
+
+        .ctrl-inner {
+            position: relative; 
+            display: block; 
+            width: 100%;  
+            /* added to avoid two rows in select */
+            height: 1.25rem;
+            line-height: 1.25rem;
+            overflow: hidden;
+            text-overflow: clip;
+            }
+
+        .ctrl-text {
+            padding-right: 15px; 
+            display: block; 
+            overflow: hidden; 
+            /*line-height: 1.2em;*/
+            }
+
+        .ctrl-icon {
+            font-size: 1rem;
+            margin-top: -7px;
+            position: absolute;
+            right: 2px;
+            top: 50%;
+        }
+     
+        /*.ctrl-select .ctrl-icon.icon-expand { right: 0.1em; } /* custom */
+
+        select {
+            width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; bottom: 0;
+            opacity: 0.0001; 
+            }
+
+        :host(.disabled:host) {
+            border: 1px solid #DEDEDE;
+            color: #999;
+            background-color: #F8F8F8;
+        }
+
+    </style>
+
+    <span class="ctrl-inner ctrl-btn">
+        <span class="ctrl-text"></span>
+        <span class="ctrl-icon icon-arrow-down"></span>
+    </span>
+	<select></select>
+</template>
+

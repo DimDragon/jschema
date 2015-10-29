@@ -1,0 +1,252 @@
+﻿<template id="fileUpload" class="ctrl-file singleline">
+    <style>   
+       
+    input { width: auto; }
+	.file-wrap
+	    {
+	       overflow: hidden;
+		   border: 1px solid #BFBFC5;
+		   border-radius: 3px;
+		   padding: 5px 5px 0;
+		   width: 100%;
+		   -moz-box-sizing: border-box; box-sizing: border-box;
+	       }
+   
+	 li{ padding-bottom: 5px; }
+   
+	 .file-preview {
+		background-color: rgba(0, 0, 0, 0.07);
+		margin: 0 5px 5px 0;
+		padding: 5px;
+		position: relative;
+		float: left;
+	}  
+
+	 .file-holder {
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox; 
+	    display: -webkit-flex; 
+	    display: flex; 
+   
+		-webkit-box-pack: center;
+	    -moz-box-pack: center;
+	     -ms-flex-pack: center;
+	     box-pack: center;
+ 
+	     -webkit-align-items: center;
+	     align-items: center;
+    
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+	     -webkit-box-pack: center;
+	     -webkit-justify-content: center;
+	     justify-content: center;
+ 
+		max-height: 80px; min-width: 80px;
+		max-width: 80px; min-height: 80px;
+	}
+
+	img {
+        -ms-flex: 1; /* Fix for IE11 */
+		height: auto;
+		max-height: 80px;
+		}
+    
+	 .file-title {
+		width: 80px;
+		font-size: 9px;
+		overflow: hidden;
+		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}   
+
+	.ctrl-img-button {
+		color: #999999;
+		font-size: 7px;
+		position: absolute; top: 2px; right: 2px;
+		cursor: pointer;
+	}
+
+    .file-upload { position: relative; }
+
+    .file-upload input {
+        height: 100%;
+        position: absolute;    
+        left: 0;
+        opacity: 0;  
+        cursor: pointer;
+    }
+
+    .progress {
+		margin: 5px 0 0;
+        background: #ccc;
+		opacity: 0;
+		-moz-transition: opacity 1s linear;
+		-o-transition: opacity 1s linear;
+		-webkit-transition: opacity 1s linear;
+	}
+  
+    .progress.loading {opacity: 1.0;}
+  
+    .progress .percent {
+		background-color: #7CBA3F;
+		height: 3px;
+        padding-left: 3px;
+		width: 0;
+        -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+
+    .file-holder span[data-type$="gif"]:before{ content: "\e07c";}
+    .file-holder span[data-type$="pdf"]:before{ content: "\e07a";}
+    .file-holder span[data-type$="txt"]:before{ content: "\e078";}
+    .file-holder span[data-type$="doc"]:before{ content: "\e07d";}
+    .file-holder span[data-type$="xls"]:before{ content: "\e076";}
+    .file-holder span[data-type$="ppt"]:before{ content: "\e082";}
+    .file-holder span[data-type$="zip"]:before{ content: "\e081";}
+    .file-holder span[data-type$="xml"]:before{ content: "\e083";}
+
+    .file-holder.attach span[data-type$="jpg"]:before{ content: "\e085";}
+    .file-holder.attach span[data-type$="png"]:before{ content: "\e085";}
+    .file-holder.attach span[data-type$="gif"]:before{ content: "\e07c";}
+
+
+    	/* Ctrl FileUpload Nopreview */
+
+	:host.no-preview .file-title {
+		text-align: left;
+		font-size: 12px;
+		line-height: 16px;
+		overflow: auto;
+		padding-right: 15px;
+		width: auto;
+	}
+
+	/* Ctrl FileUpload Single line */
+
+	:host.singleline
+	{
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox; 
+	    display: -webkit-flex; 
+	    display: flex; 
+   
+ 
+	    -webkit-box-pack: center;
+	    -moz-box-pack: center;
+	    -ms-flex-pack: center;
+	    box-pack: center;
+ 
+	    -webkit-align-items: center;
+	    align-items: center;
+ 
+	   }
+   
+	:host.singleline input 
+	{
+		margin-right: 10px;
+		-moz-box-flex: 0; 
+		-webkit-box-flex: 0; 
+		-webkit-flex: none; 
+		-ms-flex: none; 
+		flex: none;
+		 }  
+
+	:host.singleline .file-wrap{ width: auto; margin-left:10px;}
+
+	:host.singleline .file-preview{ margin-right: 0;}
+
+
+    /** Ctrl Upload SmallView **/
+
+	:host.small-preview .file-preview
+	{
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox; 
+	    display: -webkit-flex; 
+	   display: flex; 
+   
+	   padding-right: 20px;
+	   }
+   
+	:host.small-preview .file-holder
+	{
+		max-width: 16px;
+		min-width: 16px;
+		max-height: 16px;
+		min-height: 16px;}
+
+	:host.small-preview .file-holder img{ max-height: 16px; }
+
+	:host.small-preview .file-title{ text-align: left; padding-left: 5px; width: auto; }
+
+
+
+        :host(.noflex).small-preview .file-holder {
+            float: left;
+            margin-right: 5px;
+        }
+
+        :host(.noflex) img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+
+        :host(.noflex) .file-holder {
+            text-align: center;
+            line-height: 80px;
+        }
+
+
+    </style>
+    <label for="dragon_file_upload">
+        <div id="fileupload" class="file-upload">
+            <button type="button" is="ctrl-button" icon="close">Browse</button>
+            <input type="file"/>
+        </div>
+    </label>
+    <content select='input'></content>
+    <button type="submit" id="btnSubmit">Submit</button>
+    <ul class="file-wrap preview" >
+	    <li class="file-preview default">Drag & drop a file here</li>
+        <content select=".file-preview"></content>
+    </ul>
+</template>
+
+<template id="imagePreview"><!-- template for image files preview displaying uploaded files images like Windows browser icons view -->
+	<li class="file-preview">
+		<div class="file-holder image">
+			<img src="" alt="" class="image-preview file-item" />
+		</div>
+        <button is="ctrl-img-button"></button>
+        <div>
+		    <div class="file-title"></div>
+		    <div class="progress"><div class="percent"></div></div>	
+        </div>    	
+	</li>
+</template>
+
+<template id="iconPreview"><!-- template for non-image files displaying icons specific to file types like Windows browser icon view -->
+	<li class="file-preview">
+		<div class="file-holder non-image">
+			<span class="ctrl-icon file-item"></span>		
+		</div>
+        <button is="ctrl-img-button"></button>
+        <div>
+		    <div class="file-title"></div>	
+		    <div class="progress"><div class="percent"></div></div>	
+        </div>
+	</li>
+</template>
+
+<template id="titlePreview"><!-- template for file list displaying filenames like Windows browser list view -->
+	<li class="file-preview">
+		<div class="file-title"></div>
+		<div class="progress"><div class="percent"></div></div>
+        <button is="ctrl-img-button"></button>
+	</li>
+</template>
+

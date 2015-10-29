@@ -1,0 +1,71 @@
+﻿<template>
+	<style>
+        :host {
+          background-color: #ffffff;
+          padding: 5px;
+          position: relative;
+          line-height: 0;
+          display: block;
+        }
+
+        :host(.toggle) {
+			background-color: #808080;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            -webkit-transform: translateY(-50%) translateX(-50%);
+        }
+
+        .ctrl-dropmenu {
+            display: none;
+        }
+
+        :host(.toggle) .ctrl-dropmenu {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            z-index: 10;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ctrl-button {
+            width: 100%;
+            text-align: left;
+            background: #808080;
+            border-radius: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #fff;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .holder {
+            overflow: hidden;
+            position: relative;
+        }
+
+	</style>
+    <div class="holder">
+	    <img src="content/images/avatar.png" />
+    </div>    
+    <ul class="ctrl-dropmenu">
+		<li>
+			<ctrl-button action="change" data-res="CHANGE" icon="ficon-edit"></ctrl-button>
+		</li>
+        <li>
+			<ctrl-button action="clear" data-res="CLEAR" icon="ficon-close"></ctrl-button>
+        </li>
+    </ul>
+</template>

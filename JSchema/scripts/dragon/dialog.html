@@ -1,0 +1,128 @@
+﻿<template>
+    <style>
+        .ctrl-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+        }
+
+        ctrl-popup {
+            width: 420px;
+            background: #fff;
+        }
+
+            ctrl-popup .ctrl-popup-header {
+                padding: 0 10px;
+                text-align: center;
+                background: #AFAFAF;
+                position: relative;
+                min-height: 40px;
+                max-height: 40px;
+                line-height: 40px;
+                white-space: nowrap;
+            }
+
+
+        .ctrl-popup-header .ctrl-title{
+            overflow: hidden;
+            font-size: 22px;
+            font-weight: 200;
+            }
+
+            ctrl-popup .content {
+                max-height: 500px;
+                overflow-y: auto;
+                padding: 10px;
+                display: block;
+            }
+
+            ctrl-popup .ctrl-subtitle {
+                padding: 0 45px 10px 10px;
+                margin-top: -8px;
+                background: #576a92;
+                width: 100%;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                color: #fff;
+                white-space: nowrap;
+                z-index: 100;
+                position: relative;
+            }
+
+                ctrl-popup .ctrl-subtitle h4 {
+                    margin: 0;
+                    font-weight: normal;
+                    font-size: 15px;
+                    line-height: 17px;
+                    overflow: hidden;
+                }
+
+            ctrl-popup .button-wrap {
+                background: #AFAFAF;
+                text-align: right;
+                min-height: 40px;
+                max-height: 40px;
+                line-height: 40px;
+                padding: 0 10px;
+            }
+
+            ctrl-popup .ctrl-button {
+                margin-left: 10px;
+            }
+
+            ctrl-popup .ctrl-icon {
+                margin-top: -5px;
+                position: absolute;
+                top: 50%;
+                cursor: pointer;
+            }
+
+        @media screen and (max-width: 480px) {
+
+            ctrl-popup {
+                width: 100%;
+                height: 100%;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -moz-box-orient: block-axis;
+                -webkit-box-orient: block-axis;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+                ctrl-popup .content {
+                    max-height: initial;
+                    height: 100%;
+                }
+        }
+    </style>
+
+    <header class="ctrl-popup-header" draggable="true">
+        <h3 class="ctrl-title"></h3>
+        <span class="ctrl-icon icon-close"></span>
+    </header>
+    <form is="ctrl-form" class="ctrl-form">
+        <div class="ctrl-subtitle">
+            <h4></h4>
+        </div>
+        <div class="ctrl-popup-content"></div>
+    </form>
+</template>
+
+<template name="legend">
+    <ul class="legend">
+        <template repeat>
+            <li class="hbox">
+                <span class="color-box {{color}}"></span>
+                <span data-res="{{label}}"></span>
+            </li>
+        </template>
+    </ul>
+</template>

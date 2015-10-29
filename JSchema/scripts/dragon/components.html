@@ -1,0 +1,599 @@
+﻿<template>
+    <style componentscss>
+		/* --- Browser reset --- */
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, html, pre, form, fieldset, button, input, textarea, p, blockquote, th, td {
+			margin: 0;
+			padding: 0;
+			font-size: 100%;
+			vertical-align: baseline;
+		}
+
+        body {
+            position: relative;
+		}
+
+		fieldset, img {
+			border: 0;
+		}
+
+		address, caption, cite, code, dfn, em, th, var {
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		ol, ul {
+			list-style: none;
+		}
+
+		caption, th {
+			text-align: left;
+		}
+
+		article, aside, figcaption, figure, footer, header, hgroup, menu, nav, section {
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+
+		button {
+			outline: none;
+		}
+
+		body {
+		}
+
+		@font-face {
+			font-family: 'icofont';
+			src: url('fonts/icofont.eot?-56j77f');
+			src: url('fonts/icofont.eot?#iefix-56j77f') format('embedded-opentype'), url('fonts/icofont.woff?-56j77f') format('woff'), url('fonts/icofont.ttf?-56j77f') format('truetype'), url('fonts/icofont.svg?-56j77f#icofont') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		.ctrl-icon{
+			font-family: 'icofont';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+			body /deep/ .ctrl-icon{
+			font-family: 'icofont';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		.icon-key:before {
+			content: "\e60f";
+		}
+
+		body /deep/ .icon-key:before {
+			content: "\e60f";
+		}
+
+		.icon-lock:before {
+			content: "\e60e";
+		}
+
+		body /deep/ .icon-lock:before {
+			content: "\e60e";
+		}
+
+		.icon-windows8:before {
+			content: "\e4ca";
+		}
+
+		body /deep/ .icon-windows8:before {
+			content: "\e4ca";
+		}
+
+		.icon-corner:before {
+			content: "\e64a";
+		}
+
+		body /deep/ .icon-corner:before {
+			content: "\e64a";
+		}
+
+		.icon-plus-circle:before {
+			content: "\e35e";
+		}
+
+		body /deep/ .icon-plus-circle:before {
+			content: "\e35e";
+		}
+
+		.icon-close:before {
+			content: "\e36b";
+		}
+
+		body /deep/ .icon-close:before {
+			content: "\e36b";
+		}
+
+		.icon-uniE64B:before {
+			content: "\e64b";
+		}
+
+		body /deep/ .icon-uniE64B:before {
+			content: "\e64b";
+		}
+
+		.icon-clock:before {
+			content: "\e600";
+		}
+
+		body /deep/ .icon-clock:before {
+			content: "\e600";
+		}
+
+		.icon-enter:before {
+			content: "\e601";
+		}
+
+		body /deep/ .icon-enter:before {
+			content: "\e601";
+		}
+
+		.icon-exit:before {
+			content: "\e602";
+		}
+
+		body /deep/ .icon-exit:before {
+			content: "\e602";
+		}
+
+		.icon-checkmark:before {
+			content: "\e604";
+		}
+
+		body /deep/ .icon-checkmark:before {
+			content: "\e604";
+		}
+
+		.icon-embed:before {
+			content: "\e609";
+		}
+
+		body /deep/ .icon-embed:before {
+			content: "\e609";
+		}
+
+		.icon-history:before {
+			content: "\e60a";
+		}
+
+		body /deep/ .icon-history:before {
+			content: "\e60a";
+		}
+
+		.icon-keyboard:before {
+			content: "\e60b";
+		}
+
+		body /deep/ .icon-keyboard:before {
+			content: "\e60b";
+		}
+
+		.icon-expand:before {
+			content: "\e60c";
+		}
+
+		body /deep/ .icon-expand:before {
+			content: "\e60c";
+		}
+
+		.icon-blocked:before {
+			content: "\e60d";
+		}
+
+		body /deep/ .icon-blocked:before {
+			content: "\e60d";
+		}
+
+		.icon-arrow-up5:before {
+			content: "\e61d";
+		}
+
+		body /deep/ .icon-arrow-up5:before {
+			content: "\e61d";
+		}
+
+		.icon-arrow-right5:before {
+			content: "\e61e";
+		}
+
+		body /deep/ .icon-arrow-right5:before {
+			content: "\e61e";
+		}
+
+		.icon-arrow-down-right5:before {
+			content: "\e625";
+		}
+
+		body /deep/ .icon-arrow-down-right5:before {
+			content: "\e625";
+		}
+
+		.icon-arrow-down5:before {
+			content: "\e61f";
+		}
+
+		body /deep/ .icon-arrow-down5:before {
+			content: "\e61f";
+		}
+
+		.icon-arrow-left5:before {
+			content: "\e620";
+		}
+
+		body /deep/ .icon-arrow-left5:before {
+			content: "\e620";
+		}
+
+		.icon-maximize:before {
+			content: "\e623";
+		}
+
+		body /deep/ .icon-maximize:before {
+			content: "\e623";
+		}
+
+		.icon-wrench:before {
+			content: "\e626";
+		}
+
+		body /deep/ .icon-wrench:before {
+			content: "\e626";
+		}
+
+		.icon-settings:before {
+			content: "\e627";
+		}
+
+		body /deep/ .icon-settings:before {
+			content: "\e627";
+		}
+
+		.icon-menu:before {
+			content: "\e62a";
+		}
+
+		body /deep/ .icon-menu:before {
+			content: "\e62a";
+		}
+
+		.icon-in:before {
+			content: "\e62c";
+		}
+
+		body /deep/ .icon-in:before {
+			content: "\e62c";
+		}
+
+		.icon-arrow-down:before {
+			content: "\e603";
+		}
+
+		body /deep/ .icon-arrow-down:before {
+			content: "\e603";
+		}
+
+		.icon-cross:before {
+			content: "\e605";
+		}
+
+		body /deep/ .icon-cross:before {
+			content: "\e605";
+		}
+
+		.icon-erase:before {
+			content: "\e606";
+		}
+
+		body /deep/ .icon-erase:before {
+			content: "\e606";
+		}
+
+		.icon-arrow-down3:before {
+			content: "\e607";
+		}
+
+		body /deep/ .icon-arrow-down3:before {
+			content: "\e607";
+		}
+
+		.icon-menu2:before {
+			content: "\e608";
+		}
+
+		body /deep/ .icon-menu2:before {
+			content: "\e608";
+		}
+
+		.icon-arrow-left3:before {
+			content: "\e610";
+		}
+
+		body /deep/ .icon-arrow-left3:before {
+			content: "\e610";
+		}
+
+		.icon-arrow-down32:before {
+			content: "\e611";
+		}
+
+		body /deep/ .icon-arrow-down32:before {
+			content: "\e611";
+		}
+
+		.icon-arrow-up3:before {
+			content: "\e612";
+		}
+
+		body /deep/ .icon-arrow-up3:before {
+			content: "\e612";
+		}
+
+		.icon-arrow-right3:before {
+			content: "\e613";
+		}
+
+		body /deep/ .icon-arrow-right3:before {
+			content: "\e613";
+		}
+
+		.icon-arrow-left:before {
+			content: "\e614";
+		}
+
+		body /deep/ .icon-arrow-left:before {
+			content: "\e614";
+		}
+
+		.icon-arrow-down22:before {
+			content: "\e615";
+		}
+
+		body /deep/ .icon-arrow-down22:before {
+			content: "\e615";
+		}
+
+		.icon-arrow-up:before {
+			content: "\e616";
+		}
+
+		body /deep/ .icon-arrow-up:before {
+			content: "\e616";
+		}
+
+		.icon-arrow-right:before {
+			content: "\e617";
+		}
+
+		body /deep/ .icon-arrow-right:before {
+			content: "\e617";
+		}
+
+		.icon-cw:before {
+			content: "\e61c";
+		}
+
+		body /deep/ .icon-cw:before {
+			content: "\e61c";
+		}
+
+		.icon-comment:before {
+			content: "\e630";
+		}
+
+		body /deep/ .icon-comment:before {
+			content: "\e630";
+		}
+
+		.icon-user:before {
+			content: "\e632";
+		}
+
+		body /deep/ .icon-user:before {
+			content: "\e632";
+		}
+
+		.icon-users:before {
+			content: "\e633";
+		}
+
+		body /deep/ .icon-users:before {
+			content: "\e633";
+		}
+
+		.icon-user-add:before {
+			content: "\e634";
+		}
+
+		body /deep/ .icon-user-add:before {
+			content: "\e634";
+		}
+
+		.icon-cross2:before {
+			content: "\e636";
+		}
+
+		body /deep/ .icon-cross2:before {
+			content: "\e636";
+		}
+
+		.icon-checkmark2:before {
+			content: "\e637";
+		}
+
+		body /deep/ .icon-checkmark2:before {
+			content: "\e637";
+		}
+
+		.icon-list2:before {
+			content: "\e63d";
+		}
+
+		body /deep/ .icon-list2:before {
+			content: "\e63d";
+		}
+
+		.icon-facebook:before {
+			content: "\e63f";
+		}
+
+		body /deep/ .icon-facebook:before {
+			content: "\e63f";
+		}
+
+		.icon-googleplus:before {
+			content: "\e640";
+		}
+
+		body /deep/ .icon-googleplus:before {
+			content: "\e640";
+		}
+
+		.icon-tumblr:before {
+			content: "\e641";
+		}
+
+		body /deep/ .icon-tumblr:before {
+			content: "\e641";
+		}
+
+		.icon-linkedin:before {
+			content: "\e642";
+		}
+
+		body /deep/ .icon-linkedin:before {
+			content: "\e642";
+		}
+
+		.icon-text:before {
+			content: "\e644";
+		}
+
+		body /deep/ .icon-text:before {
+			content: "\e644";
+		}
+
+		.icon-link:before {
+			content: "\e645";
+		}
+
+		body /deep/ .icon-link:before {
+			content: "\e645";
+		}
+
+		.icon-video:before {
+			content: "\e647";
+		}
+
+		body /deep/ .icon-video:before {
+			content: "\e647";
+		}
+
+		.hidden {
+            display: none !important;
+		}
+
+
+		/** Flexbox **/
+
+		.vbox, .hbox, .cbox, .endbox {
+			display: -moz-box;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			/*-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;*/
+		}
+
+		.hbox {
+			-moz-box-orient: horizontal;
+			-webkit-box-orient: inline-axis;
+			-webkit-flex-direction: row;
+			-ms-flex-direction: row;
+			flex-direction: row;
+			width: 100%;
+		}
+
+		.vbox {
+			-moz-box-orient: block-axis;
+			-webkit-box-orient: block-axis;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		.cbox {
+			-moz-box-align: center;
+			-moz-box-pack: center;
+			-webkit-box-align: center;
+			-webkit-box-pack: center;
+			-webkit-align-items: center;
+			-webkit-justify-content: center;
+			-ms-flex-align: center;
+			-ms-flex-pack: center;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.endbox {
+			-moz-box-pack: end;
+			-webkit-box-pack: end;
+			-webkit-justify-content: flex-end;
+			-ms-flex-pack: end;
+			justify-content: flex-end;
+			width: 100%;
+		}
+
+
+        .ctrl-bubble {
+            background: #dec0c0;
+            color: #7f1a1a;
+            padding: 10px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+            .ctrl-bubble:before {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 5px solid #dec0c0;
+                position: absolute;
+                top: -5px;
+            }
+
+
+
+        /* ----- popup ----- */
+
+        .no-shadow {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</template>
