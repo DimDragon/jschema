@@ -1,4 +1,4 @@
-﻿Dragon.module(['dragon/classlist', 'dragon/dom', './resolver', './validator', './renderer', 'dragon/components', 'JSchema/jschema.html'], function (CL, Dom, Resolver, Validator, Renderer, WC, doc) {
+﻿Dragon.module(['dragon/classlist', 'dragon/dom', './resolver', './validator', './renderer', 'dragon/components', 'jschema/jschema.html'], function (CL, Dom, Resolver, Validator, Renderer, WC, doc) {
     var meta = Resolver.dereference("http://jschema.com/schema/v4#"),//Dragon.config.basePath.replace('scripts/lib/', 'schema/v4#')),
 		cssCommentRe = /\/\*[^*]*\*+([^/*][^*]*\*+)*\//gim,
 		cssUrlRe = /(url\()([^)]*)(\))/g,
