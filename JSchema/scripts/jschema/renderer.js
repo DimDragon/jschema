@@ -187,11 +187,7 @@
                     });
 
                     for (var i = 0, count = items.length; i < count; i++) {
-                        if (items[i].key && items[i].key.indexOf("format") == -1) { //todo mm
-                            list.appendChild(createItem('li', basePtr + ptr, items[i], i));
-                        } else if (!items[i].key) {
-                            list.appendChild(createItem('li', basePtr + ptr, items[i], i));
-                        }
+                    	list.appendChild(createItem('li', basePtr + ptr, items[i], i));
                     }
                 } else {
                     list.appendChild(createItem('li', basePtr + ptr, items));
